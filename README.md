@@ -18,6 +18,9 @@ The project uses two raw datasets:
 * **Details Table**
   Contains details such as product category, subcategory, price, quantity, and profit.
 
+* **Data Source**
+* https://www.kaggle.com/datasets/samruddhi4040/online-sales-data?select=Orders.csv
+
 After modeling, the project produces four structured tables:
 
 * **Fact Orders**
