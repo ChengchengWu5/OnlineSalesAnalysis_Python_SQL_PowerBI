@@ -37,8 +37,6 @@ After modeling, the project produces four structured tables:
   Data storage, relational modeling, and analytical SQL queries.
 * **Power BI**
   Visual analytics and interactive reporting.
-* **CSV**
-  Exported dimension and fact tables.
 
 ---
 
@@ -74,16 +72,15 @@ Created a star schema consisting of:
 * **Orders Fact Table**
   Merged all relevant attributes from the two raw tables and dimensions, including a surrogate fact key.
 
-### **5. Exporting Modeled Tables**
+### **5. Pushing Modeled Tables**
 
-* Saved all four tables (fact and dimensions) as CSV files.
+* Pushed all four tables (fact and dimensions) to SQL Server
 
 ### **6. SQL Server Integration**
 
 * Connected to a SQL Server database.
-* Uploaded all tables.
-* Set primary and foreign key constraints.
 * Ensured key fields were marked as `NOT NULL`.
+* Set primary and foreign key constraints.
 
 ### **7. SQL Analysis**
 
@@ -140,8 +137,9 @@ Answered key business questions such as:
    * Perform EDA
    * Build dimension and fact tables
    * Push the tables to SQL Server
-5. Apply primary and foreign key constraints in SQL Server.
-6. Execute the SQL queries to reproduce business insights.
-7. Open the Power BI file to explore the final interactive report.
+5. Ensured key fields were marked as `NOT NULL` in SQL Server.
+6. Apply primary and foreign key constraints in SQL Server.
+7. Execute the SQL queries to reproduce business insights.
+8. Open the Power BI file to explore the final interactive report.
 
 ---
