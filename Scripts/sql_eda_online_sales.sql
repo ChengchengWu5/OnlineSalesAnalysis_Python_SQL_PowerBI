@@ -1,6 +1,6 @@
 /*
 =================================================================================
-Exploratory Data Analysis (EDA) in SQL
+Exploratory Data Analysis (EDA) in SQL Server
 ---------------------------------------------------------------------------------
 Script Purpose:
 	This script explores the database and the tables in the database by:
