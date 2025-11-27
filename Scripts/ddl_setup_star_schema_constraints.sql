@@ -20,7 +20,7 @@ IF OBJECT_ID(N'dbo.usp_setup_star_schema_constraints', N'P') IS NOT NULL
     DROP PROCEDURE dbo.usp_setup_star_schema_constraints;
 GO
 
-CREATE PROCEDURE dbo.usp_setup_star_schema_constraints AS
+CREATE OR ALTER PROCEDURE dbo.usp_setup_star_schema_constraints AS
 BEGIN
     SET NOCOUNT ON;
     
