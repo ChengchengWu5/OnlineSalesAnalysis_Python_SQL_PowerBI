@@ -1,18 +1,12 @@
 /*
 ================================================================================
 Data Analysis in SQL Server
-================================================================================
+---------------------------
 Script Purpose:
     - tracking monthly trends, growth, and KPIs
     - measuring the performance of products against targets
     - measuring the contribution of products and states/cities to overall sales
     - measuring customer behaviors by segments defined
-  
-Main SQL Techniques/Functions Used:
-    - CTEs
-    - LAG(): Accesses data from previous rows
-    - CASE: Defines conditional logic for trend analysis
-    - SUM() OVER(): Computes average values within partitions
 ================================================================================
 */
 
