@@ -3,7 +3,7 @@
 Data Analysis in SQL Server
 ---------------------------
 Script Purpose:
-    - tracking monthly trends, growth, and KPIs
+    - tracking trends and growth over time
     - measuring the performance of products against targets
     - measuring the contribution of products and states/cities to overall sales
     - measuring customer behaviors by segments defined
