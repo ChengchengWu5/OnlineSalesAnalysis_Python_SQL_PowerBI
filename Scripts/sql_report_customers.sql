@@ -23,11 +23,11 @@ Heightlights:
 ==================================================================================
 */
 
--- Create a view for the customers report
+-- Create a view for the customer report
 CREATE OR ALTER VIEW report_customers AS
 
 -- Create a Base Query CTE: Retrieve main attributes from the fact_orders and dim_customers tables 
-WITH base_query AS (
+WITH customers_base_query AS (
 	SELECT 
 		o.order_id, 
 		o.amount,
@@ -58,7 +58,7 @@ SELECT
 	SUM(profit) AS total_profit,
 	MAX(order_date) AS last_order_date,
 	DATEDIFF(MONTH, MIN(order_date), MAX(order_date)) AS lifespan
-FROM base_query
+FROM customers_base_query
 GROUP BY 
 	customer_key,
 	customer_name,
@@ -66,7 +66,7 @@ GROUP BY
 	city
 )
 
--- Calculate KPIs
+-- Calculate Customer KPIs
 SELECT
 	customer_key,
 	customer_name,
