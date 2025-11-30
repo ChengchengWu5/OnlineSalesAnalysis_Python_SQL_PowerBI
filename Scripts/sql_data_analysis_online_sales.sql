@@ -4,9 +4,9 @@ Data Analysis in SQL Server
 ---------------------------
 Script Purpose:
     - tracking trends and growth over time
-    - measuring the performance of products against targets
-    - measuring the contribution of products and states/cities to overall sales
-    - measuring customer behaviors by segments defined
+    - comparing performance against targets
+    - measuring the contribution of dimensions to overall sales
+    - measuring behaviors/performance by segments defined
 ================================================================================
 */
 
@@ -145,38 +145,8 @@ ORDER BY percent_sales_state_city DESC;
 
 
 -----------------------------------------------------------------------------------
--- Segmentation Analysis: to understand the performace/behavior by segments defined
+-- Segmentation Analysis: to understand the behavior/performace by segments defined
 -----------------------------------------------------------------------------------
-
--- What is the number of returning and new customers and their total revenue contributions and average revenue?
-
-WITH customer_orders AS (
-    SELECT 
-        c.customer_key,
-        COUNT(DISTINCT o.order_id) AS order_count,
-        SUM(o.amount) AS total_revenue,
-        AVG(o.amount) AS avg_revenue
-    FROM fact_orders AS o
-    LEFT JOIN dim_customers AS c
-        ON o.customer_key = c.customer_key
-    GROUP BY c.customer_key
-),
-customer_segmentation AS (
-    SELECT 
-        customer_key,
-        CASE WHEN order_count > 1 THEN 'Returning'
-             ELSE 'New'
-        END AS customer_segment,
-        total_revenue
-    FROM customer_orders
-)
-SELECT 
-    customer_segment,
-    COUNT(DISTINCT customer_key) AS customer_count,
-    SUM(total_revenue) AS total_revenue,
-    AVG(total_revenue) AS avg_revenue_per_customer
-FROM customer_segmentation
-GROUP BY customer_segment;
 
 /* What is the total number of customers by the following group?
     - VIP: customers with at least 2 months of order history (lifespan) and spending more than 100
@@ -210,3 +180,46 @@ SELECT
 FROM customer_segmentation
 GROUP BY customer_segment
 ORDER BY total_customers DESC;
+
+/* What is the average selling price of products by the following segments?
+    - Low Performer: products with the total sales value less than 10000
+    - Mid Performer: products with the total sales value between 10000 and 40000
+    - High Performer: products with the total sales value more than 40000 */
+
+WITH product_sales_quantity AS (
+    SELECT 
+        p.product_key, 
+        p.category,
+        p.sub_category,
+        SUM(o.amount) AS total_sales,
+        SUM(o.quantity) AS total_quantity
+    FROM fact_orders AS o
+    LEFT JOIN dim_products AS p
+        ON o.product_key = p.product_key
+    GROUP BY 
+        p.product_key, 
+        p.category,
+        p.sub_category
+    ),
+product_segmentation AS (
+	SELECT 
+        product_key, 
+        category,
+        sub_category,
+        CASE WHEN total_sales < 10000 THEN 'Low Performer'
+             WHEN total_sales <= 40000 THEN 'Mid Performer'
+             ELSE 'High Performer'
+        END AS product_segment,
+        total_sales,
+        total_quantity
+    FROM product_sales_quantity
+    )
+SELECT 
+    product_key, 
+    category,
+    sub_category,
+    product_segment,
+    CASE WHEN total_quantity = 0 THEN 0
+		 ELSE total_sales / total_quantity 
+    END AS average_selling_price
+FROM product_segmentation;
