@@ -1,7 +1,7 @@
 /*
 ==================================================================================
-Customer Report in SQL Server
------------------------------
+Customer Report
+---------------
 Purpose:
 	- This report presents key customer metrics and behaviors
 
