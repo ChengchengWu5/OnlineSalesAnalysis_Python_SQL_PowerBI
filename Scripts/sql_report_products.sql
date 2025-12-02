@@ -92,4 +92,4 @@ SELECT
 	CASE WHEN lifespan = 0 THEN total_sales
 		 ELSE total_sales / lifespan
 	END AS average_monthly_revenue
-FROM product_aggregations
+FROM product_aggregations;
