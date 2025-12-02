@@ -16,38 +16,47 @@ Script Purpose:
 --------------------------------------------------------------------------------
 
 -- Total customers made purchase, total products sold, total quantity sold, total sales, and total profit by month
+
+-- Create a view
+CREATE OR ALTER VIEW main_aggregations AS
 SELECT 
-    FORMAT(order_date, 'yyyy-MM') AS order_date,
-    COUNT(DISTINCT customer_key) AS total_customers_made_purchase,
-    COUNT(DISTINCT product_key) AS total_products_sold,
-    SUM(quantity) AS total_quantity_sold,
+    MONTH(order_date) AS order_month,
+    COUNT(DISTINCT customer_key) AS customer_count,
+    COUNT(DISTINCT product_key) AS product_count,
+    SUM(quantity) AS total_quantity,
     SUM(amount) AS total_sales,
     SUM(profit) AS total_profit
 FROM fact_orders
-GROUP BY FORMAT(order_date, 'yyyy-MM');
-
+GROUP BY MONTH(order_date);
 
 ----------------------------------------------------------------------------------
 -- Cumulative Analysis: to understand whether our business is growing or declining 
 ----------------------------------------------------------------------------------
 
 -- What are the total sales per month and the running total of sales over time?
+
+-- Create a view
+CREATE OR ALTER VIEW sales_over_time AS
+-- Create a CTE
 WITH total_sales_per_month AS (
     SELECT 
         MONTH(order_date) AS order_month,
         SUM(amount) AS total_sales
     FROM fact_orders
     GROUP BY MONTH(order_date)
-    )
+)
 SELECT 
     order_month,
     total_sales,
-    -- Window function
     SUM(total_sales) OVER (ORDER BY order_month) AS running_total_sales
 FROM total_sales_per_month;
 
 -- What are the average number of orders per month and the moving average number of orders over time
-WITH avg_orders AS (
+
+-- Create a view
+CREATE OR ALTER VIEW avg_orders_over_time AS
+-- Create a CTE
+WITH avg_orders AS (                                        
     SELECT 
         MONTH(order_date) AS order_month,
         AVG(DISTINCT orders_key) AS avg_orders
@@ -60,13 +69,16 @@ SELECT
     AVG(avg_orders) OVER (ORDER BY order_month) AS moving_avg_orders
 FROM avg_orders;
 
-
 ----------------------------------------------------------------------------------
 -- Performance Analysis: to compare performance against targets
 ----------------------------------------------------------------------------------
 
 -- What is monthly sales of each category of products comparing to its average sales and previous month's sales?
-WITH monthly_sales_category AS (
+
+-- Create a view
+CREATE OR ALTER VIEW monthly_sales_category AS
+-- Create a CTE
+WITH monthly_sales_category AS (                            
     SELECT
         MONTH(o.order_date) AS order_month,
         p.category,
@@ -98,13 +110,16 @@ SELECT
     END AS percent_monthly_growth
 FROM monthly_sales_category;
 
-
 ----------------------------------------------------------------------------------
 -- Part-to-Whole Analysis: to understand which category has the greatest impact
 ----------------------------------------------------------------------------------
 
 -- Which categories contribute the most to overall sales?
-WITH total_sales_category AS (
+
+-- Create a view
+CREATE OR ALTER VIEW category_contribution_total_sales AS
+-- Create a CTE
+WITH category_contribution_total_sales AS (                 
 SELECT
     p.category,
     SUM(o.amount) AS total_sales
@@ -118,11 +133,14 @@ SELECT
     total_sales,
     SUM(total_sales) OVER() AS overall_sales,
     ROUND(total_sales / CAST(SUM(total_sales) OVER() AS FLOAT) * 100, 2) AS percent_sales_category
-FROM total_sales_category
-ORDER BY percent_sales_category DESC;
+FROM category_contribution_total_sales;
 
 -- Which states and cities contribute the most to overall sales?
-WITH total_sales_state_city AS (
+
+-- Create a view
+CREATE OR ALTER VIEW state_city_contribution_total_sales AS
+-- Create a CTE
+WITH state_city_contribution_total_sales AS (
 SELECT
     c.state,
     c.city,
@@ -140,9 +158,7 @@ SELECT
     total_sales,
     SUM(total_sales) OVER() AS overall_sales,
     ROUND(total_sales / CAST(SUM(total_sales) OVER() AS FLOAT) * 100, 2) AS percent_sales_state_city
-FROM total_sales_state_city
-ORDER BY percent_sales_state_city DESC;
-
+FROM state_city_contribution_total_sales;
 
 -----------------------------------------------------------------------------------
 -- Segmentation Analysis: to understand the behavior/performace by segments defined
@@ -153,7 +169,10 @@ ORDER BY percent_sales_state_city DESC;
     - Regular: customers with at least 2 months of order history but spending 100 or less
     - New: customers with the order history of less than 3 months */
 
-WITH customer_lifespan AS (
+-- Create a view
+CREATE OR ALTER VIEW customer_segmentation_behavior AS
+-- Create a CTE
+WITH customer_lifespan AS (                                    
     SELECT 
         c.customer_key, 
         MIN(o.order_date) AS first_order_date,
@@ -168,8 +187,8 @@ WITH customer_lifespan AS (
 customer_segmentation AS (
     SELECT 
         customer_key,
-        CASE WHEN lifespan >= 2 AND total_spending > 100 THEN 'VIP'
-             WHEN lifespan >= 2 AND total_spending <= 100 THEN 'Regular'
+        CASE WHEN lifespan >= 2 AND total_spending > 800 THEN 'VIP'
+             WHEN lifespan >= 2 AND total_spending <=800 THEN 'Regular'
              ELSE 'New'
         END AS customer_segment
     FROM customer_lifespan
@@ -178,15 +197,17 @@ SELECT
     customer_segment,
     COUNT(DISTINCT customer_key) AS total_customers
 FROM customer_segmentation
-GROUP BY customer_segment
-ORDER BY total_customers DESC;
+GROUP BY customer_segment;
 
 /* What is the average selling price of products by the following segments?
     - Low Performer: products with the total sales value less than 10000
     - Mid Performer: products with the total sales value between 10000 and 40000
     - High Performer: products with the total sales value more than 40000 */
 
-WITH product_sales_quantity AS (
+-- Create a view
+CREATE OR ALTER VIEW product_segmentation_performance AS
+-- Create a CTE
+WITH product_sales_quantity AS (                                
     SELECT 
         p.product_key, 
         p.category,
