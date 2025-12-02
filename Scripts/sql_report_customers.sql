@@ -72,8 +72,8 @@ SELECT
 	customer_name,
 	state,
 	city,
-	CASE WHEN lifespan >= 2 AND total_sales > 100 THEN 'VIP'
-         WHEN lifespan >= 2 AND total_sales <= 100 THEN 'Regular'
+	CASE WHEN lifespan >= 2 AND total_sales > 800 THEN 'VIP'
+         WHEN lifespan >= 2 AND total_sales <= 800 THEN 'Regular'
          ELSE 'New'
     END AS customer_segment,
 	last_order_date,
