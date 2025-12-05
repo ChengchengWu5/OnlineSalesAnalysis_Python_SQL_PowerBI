@@ -2,7 +2,7 @@
 
 ## **Overview**
 
-This project analyzes online sales data to uncover insights that support data-driven decision-making. Using a dataset of two initial tables (Orders and Details), the analysis explores trends in **revenue, orders, and profit** across different time periods, locations, customer segments, product categories and segments.
+This project analyzes online sales data to uncover insights that support data-driven decision-making. Using a dataset of two initial tables (Orders and Details), the analysis explores trends in **revenue, orders, and profit** across different time periods, locations, customer segments, and product categories and segments.
 
 The workflow includes Extract, Transform and Load (ETL) and data modeling in Python, Exploratory Data Analysis (EDA) and advanced analysis in SQL Server, and the creation of an interactive report in Power BI.
 
