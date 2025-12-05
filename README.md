@@ -83,21 +83,21 @@ Created a star schema consisting of:
 ### **7. SQL EDA and Advanced Analysis**
 
 Performed EDA to explore the database and the tables in the database by:
-    * identifying tables and columns in the database
-    * identifying unique values/categories in each dimension
-    * calculating key metrics adn building a report for the calculations
-    * comparing the measure values by different categories
-    * identifying the Top N performers and Bottom N performers
+    - identifying tables and columns in the database
+    - identifying unique values/categories in each dimension
+    - calculating key metrics adn building a report for the calculations
+    - comparing the measure values by different categories
+    - identifying the Top N performers and Bottom N performers
 
 Performed advanced analysis in the database to:
-    * track trends and growth over time
-    * compare performance against targets
-    * measure the contribution of dimensions to overall sales
-    * measure behaviors/performance by segments defined
+    - track trends and growth over time
+    - compare performance against targets
+    - measure the contribution of dimensions to overall sales
+    - measure behaviors/performance by segments defined
 
 Created views to be used for visualization in Power BI, including:
-    * views based on the analysis
-    * views for two reports, the Customer Report and the Product Report
+    - views based on the analysis
+    - views for two reports, the Customer Report and the Product Report
 
 ### **8. Power BI Reporting**
 
