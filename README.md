@@ -38,19 +38,19 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Process & Steps**
 
-### **1. Data Extraction in Python**
+### **1. Data Extraction**
 
 * Read in the Orders and Details tables using Pandas.
 
-### **2. Initial Exploration in Python**
+### **2. Initial Exploration**
 
 * Checked the structure and key attributes of the dataframes, such as the size, null, uniqueness of keys, data types, descriptive statistics, etc.
 
-### **3. Data Transformation in Python**
+### **3. Data Transformation**
 
 * Joined the two dataframes, renamed columns, and change the data type of a date column.
 
-### **4. Data Modeling in Python**
+### **4. Data Modeling**
 
 * Created a star schema consisting of:
 
