@@ -27,12 +27,9 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Tools & Technologies**
 
-* **Python (Jupyter Notebook in VS Code)**
-  - Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
-* **SQL Server**
-  - Data storage, EDA, analytical SQL queries, and view creation.
-* **Power BI**
-  - Interactive report building.
+* **Python (Jupyter Notebook in VS Code):** data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
+* **SQL Server:** data storage, EDA, analytical SQL queries, and view creation.
+* **Power BI:** interactive report building.
 
 ---
 
@@ -90,7 +87,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 * Created views to be used for visualization in Power BI, including:
     - views based on the analysis;
-    - views for two reports, the Customer Report and the Product Report.
+    - views for three reports, i.e. the reports for orders, customers, and products.
 
 ### **8. Power BI Reporting**
 
