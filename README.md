@@ -38,19 +38,17 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Process & Steps**
 
-### **1. Data Loading**
+### **1. Data Extraction**
 
-* Loaded the Orders and Details tables using Pandas.
-* Inspected data types and verified keys before merging.
+* Read in the Orders and Details tables using Pandas.
 
 ### **2. Initial Exploration**
 
-* Checked dataframe structure, missing values, main attributes, and key uniqueness.
-* Understood relationships between orders, customers, and products.
+* Checked the structure and key attributes of the two dataframes, such as the size, null, uniqueness of keys, data types, descriptive statistics, etc.
 
-### **3. Column Standardization**
+### **3. Column Transformation**
 
-* Renamed and standardized column names to improve readability and consistency.
+* Joined the two dataframes, renamed columns, and change the data type of a date column.
 
 ### **4. Data Modeling**
 
@@ -62,9 +60,10 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
   - **Orders Fact Table:** merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
-### **5. Pushing Modeled Tables**
+### **5. Pushing Modeled Tables to SQL Server**
 
-* Pushed all three tables (fact and dimensions) to SQL Server.
+* Connected to a database named OnlineSales created in SQL Server.
+* Pushed all three tables (fact and dimensions) to the database.
 
 ### **6. SQL Server Integration**
 
