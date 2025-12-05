@@ -22,7 +22,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
   - **Dim Customers**
   - **Dim Products**
 
-* **Data Source** https://www.kaggle.com/datasets/samruddhi4040/online-sales-data?select=Orders.csv
+* **Data Source:** https://www.kaggle.com/datasets/samruddhi4040/online-sales-data?select=Orders.csv
 ---
 
 ## **Tools & Technologies**
