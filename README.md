@@ -90,7 +90,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 * Created views to be used for visualization in Power BI, including:
     - views based on the analysis;
-    - views for three reports, i.e. the reports for orders, customers, and products.
+    - views for three reports, i.e. orders, customers, and products.
 
 ### **8. Power BI Reporting**
 
@@ -125,17 +125,17 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ### **Steps**
 
-1. Clone the repository
-2. Open the Jupyter Notebook
-3. Install required Python libraries:
-   * pip install pandas sqlalchemy pyodbc
-4. Run the notebook to:
-   * load raw data
-   * perform data cleaning and transformation
-   * build dimension and fact tables
-   * push the tables to SQL Server
-5. Use the stored procedure to set key fields as NOT NULL and primary and foreign key constraints in SQL Server
-6. Execute the SQL queries to perform EDA and advanced analysis to reproduce business insights
-8. Open the Power BI file to explore the final interactive report.
+* Clone the repository
+* Open the Jupyter Notebook
+* Install required Python libraries:
+  - pip install pandas sqlalchemy pyodbc
+* Run the notebook to:
+  - load raw data
+  - perform data cleaning and transformation
+  - build dimension and fact tables
+  - push the tables to SQL Server
+* Use the stored procedure to set key fields as NOT NULL and primary and foreign key constraints in SQL Server
+* Execute the SQL queries to perform EDA and advanced analysis to reproduce business insights
+* Open the Power BI file to explore the final interactive report.
 
 ---
