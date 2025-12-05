@@ -54,16 +54,13 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ### **4. Data Modeling**
 
-Created a star schema consisting of:
+* Created a star schema consisting of:
 
-* **Customers Dimension**
-  - Standardized customer attributes and added a surrogate key.
+  - **Customers Dimension:** standardized customer attributes and added a surrogate key.
 
-* **Products Dimension**
-  - Consolidated product information and added a surrogate key.
+  - **Products Dimension:** consolidated product information and added a surrogate key.
 
-* **Orders Fact Table**
-  - Merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
+  - **Orders Fact Table:** merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
 ### **5. Pushing Modeled Tables**
 
