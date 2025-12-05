@@ -60,7 +60,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
   - **Orders Fact Table:** merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
-### **5. Pushing Modeled Tables to SQL Server in Python**
+### **5. Pushing Modeled Tables to SQL Server**
 
 * Connected to a database named OnlineSales created in SQL Server.
 * Pushed all three tables (fact and dimensions) to the database.
