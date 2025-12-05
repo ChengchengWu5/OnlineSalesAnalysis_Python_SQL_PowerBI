@@ -140,7 +140,7 @@ Created a star schema consisting of:
    * perform data cleaning and transformation
    * build dimension and fact tables
    * push the tables to SQL Server
-5. Use the stored procedure to set key fields as NOT NULL and set primary and foreign key constraintsin in SQL Server
+5. Use the stored procedure to set key fields as NOT NULL and primary and foreign key constraints in SQL Server
 6. Execute the SQL queries to perform EDA and advanced analysis to reproduce business insights
 8. Open the Power BI file to explore the final interactive report.
 
