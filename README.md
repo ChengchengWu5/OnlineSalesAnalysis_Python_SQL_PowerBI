@@ -38,19 +38,19 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Process & Steps**
 
-### **1. Data Extraction**
+### **1. Data Extraction in Python**
 
 * Read in the Orders and Details tables using Pandas.
 
-### **2. Initial Exploration**
+### **2. Initial Exploration in Python**
 
 * Checked the structure and key attributes of the dataframes, such as the size, null, uniqueness of keys, data types, descriptive statistics, etc.
 
-### **3. Data Transformation**
+### **3. Data Transformation in Python**
 
 * Joined the two dataframes, renamed columns, and change the data type of a date column.
 
-### **4. Data Modeling**
+### **4. Data Modeling in Python**
 
 * Created a star schema consisting of:
 
@@ -60,7 +60,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
   - **Orders Fact Table:** merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
-### **5. Pushing Modeled Tables to SQL Server**
+### **5. Pushing Modeled Tables to SQL Server in Python**
 
 * Connected to a database named OnlineSales created in SQL Server.
 * Pushed all three tables (fact and dimensions) to the database.
