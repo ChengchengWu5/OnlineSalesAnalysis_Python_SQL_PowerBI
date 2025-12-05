@@ -77,7 +77,7 @@ Created a star schema consisting of:
 * Connected to a SQL Server database.
 * Ensured key fields were marked as NOT NULL.
 * Set primary and foreign key constraints.
-* Created a star shema setup stored procedure of the process.
+* Created a star shema setup stored procedure for the process.
 
 ### **7. SQL EDA and Advanced Analysis**
 
