@@ -27,9 +27,12 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Tools & Technologies**
 
-* **Python (Jupyter Notebook in VS Code):** data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
-* **SQL Server:** data storage, EDA, analytical SQL queries, and view creation.
-* **Power BI:** interactive report building.
+* **Python (Jupyter Notebook in VS Code)**
+  - Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
+* **SQL Server**
+  - Data storage, EDA, analytical SQL queries, and view creation.
+* **Power BI**
+  - Interactive report building.
 
 ---
 
