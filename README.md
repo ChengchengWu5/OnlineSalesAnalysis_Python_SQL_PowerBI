@@ -10,21 +10,21 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 ## **Datasets**
 
-The project uses two raw datasets:
+* The project uses two raw datasets:
 
 * **Orders Table**
-  Contains high-level order information such as order date, customer type, city, and state.
+  - Contains high-level order information such as order date, customer type, city, and state.
 
 * **Details Table**
-  Contains details such as product category, subcategory, price, quantity, and profit.
+  - Contains details such as product category, subcategory, price, quantity, and profit.
 
 * **Data Source** https://www.kaggle.com/datasets/samruddhi4040/online-sales-data?select=Orders.csv
 
-After modeling, the project produces three structured tables:
+* After modeling, the project produces three structured tables:
 
-* **Fact Orders**
-* **Dim Customers**
-* **Dim Products**
+  - **Fact Orders**
+  - **Dim Customers**
+  - **Dim Products**
 
 ---
 
