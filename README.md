@@ -134,7 +134,7 @@ Created a star schema consisting of:
 1. Clone the repository
 2. Open the Jupyter Notebook
 3. Install required Python libraries:
-   pip install pandas sqlalchemy pyodbc
+   * pip install pandas sqlalchemy pyodbc
 4. Run the notebook to:
    * load raw data
    * perform data cleaning and transformation
