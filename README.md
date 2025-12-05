@@ -31,9 +31,7 @@ After modeling, the project produces three structured tables:
 ## **Tools & Technologies**
 
 * **Python (Jupyter Notebook in VS Code)**
-  Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server.
-* **Pandas**
-  EDA and data modeling.
+  Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
 * **SQL Server**
   Data storage, EDA, analytical SQL queries, and view creation.
 * **Power BI**
@@ -62,13 +60,13 @@ After modeling, the project produces three structured tables:
 Created a star schema consisting of:
 
 * **Customers Dimension**
-  Generated a surrogate key and standardized customer attributes.
+  Standardized customer attributes and added a surrogate key.
 
 * **Products Dimension**
-  Added a surrogate key and consolidated product information.
+  Consolidated product information and added a surrogate key.
 
 * **Orders Fact Table**
-  Merged all relevant attributes from the two raw tables and the two dimension tables and added a surrogate fact key.
+  Merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
 ### **5. Pushing Modeled Tables**
 
@@ -79,44 +77,45 @@ Created a star schema consisting of:
 * Connected to a SQL Server database.
 * Ensured key fields were marked as NOT NULL.
 * Set primary and foreign key constraints.
+* Created a star shema setup stored procedure of the process.
 
 ### **7. SQL EDA and Advanced Analysis**
 
 * Performed EDA to explore the database and the tables in the database by:
-    - identifying tables and columns in the database
-    - identifying unique values/categories in each dimension
-    - calculating key metrics adn building a report for the calculations
-    - comparing the measure values by different categories
-    - identifying the Top N performers and Bottom N performers
+    - identifying tables and columns in the database;
+    - identifying unique values/categories in each dimension;
+    - calculating key metrics and building a report for the calculations;
+    - comparing the measure values by different categories;
+    - identifying the Top N performers and Bottom N performers.
 
 * Performed advanced analysis in the database to:
-    - track trends and growth over time
-    - compare performance against targets
-    - measure the contribution of dimensions to overall sales
-    - measure behaviors/performance by segments defined
+    - track trends and growth over time;
+    - compare performance against targets;
+    - measure the contribution of dimensions to overall sales;
+    - measure behaviors/performance by segments defined.
 
 * Created views to be used for visualization in Power BI, including:
-    - views based on the analysis
-    - views for two reports, the Customer Report and the Product Report
+    - views based on the analysis;
+    - views for two reports, the Customer Report and the Product Report.
 
 ### **8. Power BI Reporting**
 
-* Imported the views from SQL Server into Power BI
-* Created a date table using a date table function in Advanced Editor
-* Built an interative Online Sales report, including **Overview**, **Customers**, and **Products** pages
+* Imported the views from SQL Server into Power BI.
+* Created a date table using a date table function in Advanced Editor.
+* Built an interative Online Sales report, including **Overview**, **Customers**, and **Products** pages.
 
 ---
 
 ## **Results**
 
-* Calculated total customers made purchase, total products sold, total quantity sold, total sales, and total profit by month
-* Calculated the total sales per month and the running total of sales over time
-* Calculated the average number of orders per month and the moving average number of orders over time
-* Compared monthly sales of each category of products to its average sales and previous month's sales
-* Identified the categories that contribute the most to overall sales
-* Identified the states and cities that contribute the most to overall sales
-* Calculated the total number of customers by customer segments, i.e. VIP, Regular, and New Customers
-* Calculated the average selling price of products by product segments, i.e. Lower, Mid, and High Performers
+* Calculated total customers made purchase, total products sold, total quantity sold, total sales, and total profit by month.
+* Calculated the total sales per month and the running total of sales over time.
+* Calculated the average number of orders per month and the moving average number of orders over time.
+* Compared monthly sales of each category of products to its average sales and previous month's sales.
+* Identified the categories that contribute the most to overall sales.
+* Identified the states and cities that contribute the most to overall sales.
+* Calculated the total number of customers by customer segments, i.e. VIP, Regular, and New Customers.
+* Calculated the average selling price of products by product segments, i.e. Lower, Mid, and High Performers.
 *(Detailed visual results are included in the Power BI report.)*
 
 ---
@@ -135,15 +134,12 @@ Created a star schema consisting of:
 1. Clone the repository
 2. Open the Jupyter Notebook
 3. Install required Python libraries:
-
-   ```
    pip install pandas sqlalchemy pyodbc
-   ```
 4. Run the notebook to:
-   * Load raw data
-   * Perform data cleaning and transformation
-   * Build dimension and fact tables
-   * Push the tables to SQL Server
+   * load raw data
+   * perform data cleaning and transformation
+   * build dimension and fact tables
+   * push the tables to SQL Server
 5. Use the stored procedure to set key fields as NOT NULL and set primary and foreign key constraintsin in SQL Server
 6. Execute the SQL queries to perform EDA and advanced analysis to reproduce business insights
 8. Open the Power BI file to explore the final interactive report.
