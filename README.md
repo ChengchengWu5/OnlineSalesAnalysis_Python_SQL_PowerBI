@@ -31,11 +31,11 @@ After modeling, the project produces three structured tables:
 ## **Tools & Technologies**
 
 * **Python (Jupyter Notebook in VS Code)**
-  Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
+  - Data loading, cleaning, transformation, modelling, table creation, and pushing to SQL Server using Pandas.
 * **SQL Server**
-  Data storage, EDA, analytical SQL queries, and view creation.
+  - Data storage, EDA, analytical SQL queries, and view creation.
 * **Power BI**
-  Interactive report building.
+  - Interactive report building.
 
 ---
 
@@ -60,13 +60,13 @@ After modeling, the project produces three structured tables:
 Created a star schema consisting of:
 
 * **Customers Dimension**
-  Standardized customer attributes and added a surrogate key.
+  - Standardized customer attributes and added a surrogate key.
 
 * **Products Dimension**
-  Consolidated product information and added a surrogate key.
+  - Consolidated product information and added a surrogate key.
 
 * **Orders Fact Table**
-  Merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
+  - Merged relevant attributes from the two raw tables and the two dimension tables and added a surrogate key.
 
 ### **5. Pushing Modeled Tables**
 
