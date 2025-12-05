@@ -1,4 +1,4 @@
-# **Online Sales Analytics Project — README**
+# **Online Sales ETL and Analytics Project — README**
 
 ## **Overview**
 
