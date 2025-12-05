@@ -46,7 +46,7 @@ The workflow includes Extract, Transform and Load (ETL) and data modeling in Pyt
 
 * Checked the structure and key attributes of the dataframes, such as the size, null, uniqueness of keys, data types, descriptive statistics, etc.
 
-### **3. Column Transformation**
+### **3. Data Transformation**
 
 * Joined the two dataframes, renamed columns, and change the data type of a date column.
 
